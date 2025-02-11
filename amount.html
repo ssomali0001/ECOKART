@@ -9,46 +9,57 @@
 <body>
   <div class="container">
     <h1 id="ewasteTitle">Your E-Waste Amount</h1>
-    <h3 id="amount">₹ Calculating...</h3>
+    <h3 id="amount" aria-live="polite">₹ Calculating...</h3>
 
-    <!-- Button container for Confirm and Cancel buttons -->
+    <!-- Button container -->
     <div class="button-container">
       <button id="confirmBtn">Confirm</button>
       <button id="cancelBtn">Cancel</button>
     </div>
 
     <!-- Thank You message -->
-    <div id="thankYouMessage" style="display: none;">
+    <div id="thankYouMessage" class="hidden">
       <h2>Thank you for visiting! Come back again!</h2>
     </div>
 
-    <!-- Go Back button (initially hidden) -->
-    <button id="goBackButton" onclick="window.location.href='index.html'" style="display: none;">Go Back</button>
+    <!-- Go Back button -->
+    <button id="goBackButton" onclick="window.location.href='index.html'" class="hidden">Go Back</button>
   </div>
 
   <script>
-    // Generate a random number between 100 and 1000 for the e-waste amount
-    const randomNum = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
-    document.getElementById('amount').textContent = `₹${randomNum}`;
+    document.addEventListener("DOMContentLoaded", function () {
+      const amountElement = document.getElementById('amount');
+      const confirmBtn = document.getElementById('confirmBtn');
+      const cancelBtn = document.getElementById('cancelBtn');
+      const ewasteTitle = document.getElementById('ewasteTitle');
+      const thankYouMessage = document.getElementById('thankYouMessage');
+      const goBackButton = document.getElementById('goBackButton');
 
-    // Add event listener for the Cancel button
-    document.getElementById('cancelBtn').addEventListener('click', function() {
-      // Hide the "Your E-Waste Amount" and amount text
-      document.getElementById('ewasteTitle').style.display = 'none';
-      document.getElementById('amount').style.display = 'none';
-      document.getElementById('confirmBtn').style.display = 'none';
-      document.getElementById('cancelBtn').style.display = 'none';
+      // Generate a formatted random amount
+      const randomNum = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
+      amountElement.textContent = `₹${randomNum.toLocaleString()}`;
 
-      // Show the Thank You message and Go Back button
-      document.getElementById('thankYouMessage').style.display = 'block';
-      document.getElementById('goBackButton').style.display = 'block';
-    });
+      // Cancel button action
+      cancelBtn.addEventListener('click', function () {
+        ewasteTitle.style.display = 'none';
+        amountElement.style.display = 'none';
+        confirmBtn.style.display = 'none';
+        cancelBtn.style.display = 'none';
 
-    // Add event listener for the Confirm button
-    document.getElementById('confirmBtn').addEventListener('click', function() {
-      // Redirect to the success page
-      window.location.href = 'success.html';
+        thankYouMessage.classList.remove('hidden');
+        goBackButton.classList.remove('hidden');
+      });
+
+      // Confirm button action
+      confirmBtn.addEventListener('click', function () {
+        window.location.href = 'success.html';
+      });
     });
   </script>
+
+  <style>
+    .hidden { display: none; }
+    .button-container button:hover { background-color: #ddd; }
+  </style>
 </body>
 </html>
