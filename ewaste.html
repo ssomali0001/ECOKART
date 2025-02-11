@@ -5,15 +5,54 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drop Your E-Waste</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .container {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .loader {
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Please Wait</h1>
+    <div class="loader"></div>
     <h3>Drop your e-waste at the nearest designated collection point</h3>
     <p>Your expected amount has been processed. We appreciate your contribution to recycling!</p>
     <p>Thank you for being a part of ECOKART's e-waste management initiative!</p>
-    
-    <button onclick="window.location.href='amount.html'">Confirm</button>
+
+    <button id="confirmBtn">Confirm</button>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const confirmBtn = document.getElementById("confirmBtn");
+
+      // Auto-redirect after 5 seconds
+      setTimeout(() => {
+        window.location.href = "amount.html";
+      }, 5000);
+
+      // Also allow manual confirmation
+      confirmBtn.addEventListener("click", function () {
+        window.location.href = "amount.html";
+      });
+    });
+  </script>
 </body>
 </html>
