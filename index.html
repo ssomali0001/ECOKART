@@ -8,21 +8,30 @@
 </head>
 <body>
   <div class="container">
-    <h1>Welcome To ECOKART</h1>
+    <h1>Welcome to ECOKART</h1>
     <h3>JANATA HIGH SCHOOL BANTILO</h3>
 
+    <!-- Form to collect user information -->
     <form id="EKOKARTForm">
-      <label for="name">Name:</label>
-      <input type="text" id="name" required>
+      <div class="input-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+      </div>
 
-      <label for="mobile">Mobile:</label>
-      <input type="text" id="mobile" required>
+      <div class="input-group">
+        <label for="mobile">Mobile:</label>
+        <input type="text" id="mobile" placeholder="Enter your mobile number" required>
+      </div>
 
-      <label for="aadhar_number">Aadhar No (optional):</label>
-      <input type="text" id="aadhar_number">
+      <div class="input-group">
+        <label for="aadhar_number">Aadhar No (optional):</label>
+        <input type="text" id="aadhar_number" placeholder="Enter Aadhar number (optional)">
+      </div>
 
-      <label for="address">Address (optional):</label>
-      <input type="text" id="address">
+      <div class="input-group">
+        <label for="address">Address (optional):</label>
+        <input type="text" id="address" placeholder="Enter your address (optional)">
+      </div>
 
       <button type="submit">Next</button>
     </form>
