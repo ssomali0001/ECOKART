@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Your E-Waste Amount</h1>
+    <h1 id="ewasteTitle">Your E-Waste Amount</h1>
     <h3 id="amount">₹ Calculating...</h3>
 
     <!-- Confirm and Cancel buttons -->
@@ -31,7 +31,8 @@
 
     // Add event listener for the Cancel button
     document.getElementById('cancelBtn').addEventListener('click', function() {
-      // Hide the amount and buttons
+      // Hide the "Your E-Waste Amount" and amount text
+      document.getElementById('ewasteTitle').style.display = 'none';
       document.getElementById('amount').style.display = 'none';
       document.getElementById('confirmBtn').style.display = 'none';
       document.getElementById('cancelBtn').style.display = 'none';
