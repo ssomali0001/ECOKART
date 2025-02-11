@@ -6,40 +6,11 @@
   <title>Your E-Waste Amount</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Global Spinner */
-    #globalSpinner {
-      display: none; /* Initially hidden */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    /* Spinner styles */
-    .spinner {
-      border: 8px solid #f3f3f3;
-      border-top: 8px solid #3498db;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-    }
-
-    /* Spinner animation */
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
+    /* Additional styles if needed */
   </style>
 </head>
 <body>
-  <!-- Global Spinner -->
+  <!-- Global Spinner (Initially hidden) -->
   <div id="globalSpinner">
     <div class="spinner"></div>
   </div>
@@ -53,12 +24,12 @@
     <button id="cancelBtn">Cancel</button>
 
     <!-- Thank You message -->
-    <div id="thankYouMessage">
+    <div id="thankYouMessage" style="display: none;">
       <h2>Thank you for visiting! Come back again!</h2>
     </div>
 
     <!-- Go Back button (initially hidden) -->
-    <button id="goBackButton" onclick="window.location.href='index.html'">Go Back</button>
+    <button id="goBackButton" onclick="window.location.href='index.html'" style="display: none;">Go Back</button>
   </div>
 
   <script>
@@ -81,23 +52,26 @@
     // Add event listener for the Confirm button
     document.getElementById('confirmBtn').addEventListener('click', function() {
       showSpinner();
+      
       setTimeout(function() {
         window.location.href = 'success.html';
         hideSpinner();
-      }, 2000);
+      }, 2000); // Adjust the delay as needed
     });
 
     // Add event listener for the Cancel button
     document.getElementById('cancelBtn').addEventListener('click', function() {
       showSpinner();
+
       setTimeout(function() {
         hideSpinner();
         document.getElementById('amount').style.display = 'none';
         document.getElementById('confirmBtn').style.display = 'none';
         document.getElementById('cancelBtn').style.display = 'none';
+        
         document.getElementById('thankYouMessage').style.display = 'block';
         document.getElementById('goBackButton').style.display = 'block';
-      }, 2000);
+      }, 2000); // Adjust the delay as needed
     });
   </script>
 </body>
