@@ -21,6 +21,11 @@
       font-size: 24px;
       margin-top: 20px;
     }
+
+    /* Styles for the Go Back button */
+    #goBackButton {
+      display: none; /* Initially hidden */
+    }
   </style>
 </head>
 <body>
@@ -36,6 +41,9 @@
     <div id="thankYouMessage">
       <h2>Thank you for visiting! Come back again!</h2>
     </div>
+
+    <!-- Go Back button (initially hidden) -->
+    <button id="goBackButton" onclick="window.location.href='index.html'">Go Back</button>
   </div>
 
   <script>
@@ -60,6 +68,9 @@
       
       // Show the Thank You message
       document.getElementById('thankYouMessage').style.display = 'block';
+      
+      // Show the Go Back button
+      document.getElementById('goBackButton').style.display = 'block';
     });
   </script>
 </body>
