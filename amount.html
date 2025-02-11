@@ -8,43 +8,43 @@
 </head>
 <body>
   <div class="container">
-    <!-- E-Waste Amount section, initially visible -->
-    <div id="ewasteAmountSection">
-      <h1>Your E-Waste Amount</h1>
-      <h3 id="amount">₹ Calculating...</h3>
+    <h1>Your E-Waste Amount</h1>
+    <h3 id="amount">₹ Calculating...</h3>
 
-      <!-- Confirm and Cancel buttons -->
-      <button id="confirmBtn">Confirm</button>
-      <button id="cancelBtn">Cancel</button>
-    </div>
+    <!-- Confirm and Cancel buttons -->
+    <button id="confirmBtn">Confirm</button>
+    <button id="cancelBtn">Cancel</button>
 
-    <!-- Thank You message, initially hidden -->
-    <div id="thankYouMessage" style="display:none;">
+    <!-- Thank You message -->
+    <div id="thankYouMessage" style="display: none;">
       <h2>Thank you for visiting! Come back again!</h2>
-      <button id="goBackButton" onclick="window.location.href='index.html'">Go Back</button>
     </div>
+
+    <!-- Go Back button (initially hidden) -->
+    <button id="goBackButton" onclick="window.location.href='index.html'" style="display: none;">Go Back</button>
   </div>
 
   <script>
-    // Generate a random number between 100 and 1000
+    // Generate a random number between 100 and 1000 for the e-waste amount
     const randomNum = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
-    
-    // Display the generated amount
     document.getElementById('amount').textContent = `₹${randomNum}`;
-
-    // Add event listener for the Confirm button
-    document.getElementById('confirmBtn').addEventListener('click', function() {
-      // Immediately redirect to the success page without any delay
-      window.location.href = 'success.html';
-    });
 
     // Add event listener for the Cancel button
     document.getElementById('cancelBtn').addEventListener('click', function() {
-      // Hide the E-Waste Amount section
-      document.getElementById('ewasteAmountSection').style.display = 'none';
+      // Hide the amount and buttons
+      document.getElementById('amount').style.display = 'none';
+      document.getElementById('confirmBtn').style.display = 'none';
+      document.getElementById('cancelBtn').style.display = 'none';
 
       // Show the Thank You message and Go Back button
       document.getElementById('thankYouMessage').style.display = 'block';
+      document.getElementById('goBackButton').style.display = 'block';
+    });
+
+    // Add event listener for the Confirm button
+    document.getElementById('confirmBtn').addEventListener('click', function() {
+      // Redirect to the success page
+      window.location.href = 'success.html';
     });
   </script>
 </body>
