@@ -68,7 +68,7 @@
 
   <div class="container">
     <h1>Your E-Waste Amount</h1>
-    <h3 id="amount">Calculating...</h3>
+    <h3 id="amount">₹ Calculating...</h3>
 
     <!-- Confirm and Cancel buttons -->
     <button id="confirmBtn">Confirm</button>
@@ -124,6 +124,11 @@
       setTimeout(function() {
         // Hide the spinner after processing is done
         hideSpinner();
+        
+        // Remove the "Your E-Waste Amount" heading and amount text
+        document.getElementById('amount').style.display = 'none';
+        document.getElementById('confirmBtn').style.display = 'none';
+        document.getElementById('cancelBtn').style.display = 'none';
         
         // Show the Thank You message and Go Back button
         document.getElementById('thankYouMessage').style.display = 'block';
