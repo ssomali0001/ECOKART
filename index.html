@@ -16,16 +16,19 @@
       <div class="input-group">
         <label for="name">Name:</label>
         <input type="text" id="name" placeholder="Enter your name" required>
+        <p class="error-message" id="nameError"></p>
       </div>
 
       <div class="input-group">
         <label for="mobile">Mobile:</label>
         <input type="text" id="mobile" placeholder="Enter your mobile number" required>
+        <p class="error-message" id="mobileError"></p>
       </div>
 
       <div class="input-group">
         <label for="aadhar_number">Aadhar No (optional):</label>
         <input type="text" id="aadhar_number" placeholder="Enter Aadhar number (optional)">
+        <p class="error-message" id="aadharError"></p>
       </div>
 
       <div class="input-group">
@@ -33,7 +36,7 @@
         <input type="text" id="address" placeholder="Enter your address (optional)">
       </div>
 
-      <button type="submit">Next</button>
+      <button type="submit" id="submitButton">Next</button>
     </form>
   </div>
 
