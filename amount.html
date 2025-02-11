@@ -44,19 +44,31 @@
       100% { transform: rotate(360deg); }
     }
 
-    /* Initially hide the spinner */
-    #loadingSpinner {
-      display: none;
+    /* Global Spinner */
+    #globalSpinner {
+      display: none; /* Initially hidden */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
     }
   </style>
 </head>
 <body>
+  <!-- Global Spinner -->
+  <div id="globalSpinner">
+    <div class="spinner"></div>
+  </div>
+
   <div class="container">
     <h1>Your E-Waste Amount</h1>
     <h3 id="amount">Calculating...</h3>
-
-    <!-- Loading Spinner (initially hidden) -->
-    <div id="loadingSpinner" class="spinner"></div>
 
     <!-- Confirm and Cancel buttons -->
     <button id="confirmBtn">Confirm</button>
@@ -72,6 +84,16 @@
   </div>
 
   <script>
+    // Function to show the global spinner
+    function showSpinner() {
+      document.getElementById('globalSpinner').style.display = 'flex';
+    }
+
+    // Function to hide the global spinner
+    function hideSpinner() {
+      document.getElementById('globalSpinner').style.display = 'none';
+    }
+
     // Generate a random number between 100 and 1000
     const randomNum = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
     
@@ -80,27 +102,33 @@
 
     // Add event listener for the Confirm button
     document.getElementById('confirmBtn').addEventListener('click', function() {
-      // Redirect to the success page (Page 4)
-      window.location.href = 'success.html';
+      // Show the global spinner
+      showSpinner();
+      
+      // Simulate a delay (for example, a page redirect or processing)
+      setTimeout(function() {
+        // Redirect to the success page (for example)
+        window.location.href = 'success.html';
+        
+        // Hide the spinner after processing is done
+        hideSpinner();
+      }, 2000); // Adjust the delay as needed
     });
 
     // Add event listener for the Cancel button
     document.getElementById('cancelBtn').addEventListener('click', function() {
-      // Show the loading spinner
-      document.getElementById('loadingSpinner').style.display = 'block';
-
-      // Hide the amount and buttons
-      document.getElementById('amount').style.display = 'none';
-      document.getElementById('confirmBtn').style.display = 'none';
-      document.getElementById('cancelBtn').style.display = 'none';
+      // Show the global spinner
+      showSpinner();
       
-      // Simulate a delay (e.g., processing time)
+      // Simulate a delay (for example, processing cancel)
       setTimeout(function() {
-        // Hide the loading spinner and show the Thank You message and Go Back button
-        document.getElementById('loadingSpinner').style.display = 'none';
+        // Hide the spinner after processing is done
+        hideSpinner();
+        
+        // Show the Thank You message and Go Back button
         document.getElementById('thankYouMessage').style.display = 'block';
         document.getElementById('goBackButton').style.display = 'block';
-      }, 2000); // 2-second delay for demonstration
+      }, 2000); // Adjust the delay as needed
     });
   </script>
 </body>
