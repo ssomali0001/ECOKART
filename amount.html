@@ -8,20 +8,22 @@
 </head>
 <body>
   <div class="container">
-    <h1>Your E-Waste Amount</h1>
-    <h3 id="amount">₹ Calculating...</h3>
+    <!-- Your E-Waste Amount section -->
+    <div id="ewasteAmountSection">
+      <h1>Your E-Waste Amount</h1>
+      <h3 id="amount">₹ Calculating...</h3>
 
-    <!-- Confirm and Cancel buttons -->
-    <button id="confirmBtn">Confirm</button>
-    <button id="cancelBtn">Cancel</button>
-
-    <!-- Thank You message -->
-    <div id="thankYouMessage">
-      <h2>Thank you for visiting! Come back again!</h2>
+      <!-- Confirm and Cancel buttons -->
+      <button id="confirmBtn">Confirm</button>
+      <button id="cancelBtn">Cancel</button>
     </div>
 
-    <!-- Go Back button (initially hidden) -->
-    <button id="goBackButton" onclick="window.location.href='index.html'">Go Back</button>
+    <!-- Thank You message (hidden by default) -->
+    <div id="thankYouMessage" style="display:none;">
+      <h2>Thank you for visiting! Come back again!</h2>
+      <!-- Go Back button -->
+      <button id="goBackButton" onclick="window.location.href='index.html'">Go Back</button>
+    </div>
   </div>
 
   <script>
@@ -33,26 +35,17 @@
 
     // Add event listener for the Confirm button
     document.getElementById('confirmBtn').addEventListener('click', function() {
-      // Simulate a delay (for example, a page redirect or processing)
-      setTimeout(function() {
-        // Redirect to the success page (for example)
-        window.location.href = 'success.html';
-      }, 2000); // Adjust the delay as needed
+      // Immediately redirect to the success page without any delay
+      window.location.href = 'success.html';
     });
 
     // Add event listener for the Cancel button
     document.getElementById('cancelBtn').addEventListener('click', function() {
-      // Simulate a delay (for example, processing cancel)
-      setTimeout(function() {
-        // Remove the "Your E-Waste Amount" heading and amount text
-        document.getElementById('amount').style.display = 'none';
-        document.getElementById('confirmBtn').style.display = 'none';
-        document.getElementById('cancelBtn').style.display = 'none';
-        
-        // Show the Thank You message and Go Back button
-        document.getElementById('thankYouMessage').style.display = 'block';
-        document.getElementById('goBackButton').style.display = 'block';
-      }, 2000); // Adjust the delay as needed
+      // Hide the E-Waste Amount section
+      document.getElementById('ewasteAmountSection').style.display = 'none';
+
+      // Show the Thank You message and Go Back button
+      document.getElementById('thankYouMessage').style.display = 'block';
     });
   </script>
 </body>
