@@ -24,8 +24,7 @@
   </div>
 
   <script>
-    const randomNum = Math.floor(Math.random() * (1000 - 100 + 1)) + 100;
-    document.getElementById('amount').textContent = `₹${randomNum}`;
+    document.getElementById('amount').textContent = `₹${Math.floor(Math.random() * 901) + 100}`;
 
     document.getElementById('cancelBtn').addEventListener('click', function() {
       document.getElementById('ewasteTitle').style.display = 'none';
